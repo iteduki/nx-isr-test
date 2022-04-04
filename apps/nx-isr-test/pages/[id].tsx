@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps<
       title: `ページタイトル${id}`,
       content: new Date().toString(),
     },
-    revalidate: 60 * 60 * 1, // 1時間
+    revalidate: 60 // 1分
   };
 };
 
