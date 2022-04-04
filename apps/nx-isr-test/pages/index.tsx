@@ -1,5 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export const getStaticProps: GetStaticProps = () => {
   return {
@@ -11,6 +12,7 @@ export const getStaticProps: GetStaticProps = () => {
 const ids = [1, 2, 3];
 
 const IndexPage: NextPage = () => {
+  const [text, setText] = useState('')
   return (
     <>
       {ids.map((id) => (
@@ -31,11 +33,13 @@ const IndexPage: NextPage = () => {
                 });
                 const text = await response.text();
                 console.log(JSON.parse(text));
+                setText(`${id} cache is revalidated`)
               }}
             />
           </div>
         );
       })}
+      <textarea readOnly value={text} />
     </>
   );
 };
