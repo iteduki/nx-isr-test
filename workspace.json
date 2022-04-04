@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "nx-isr-test": "apps/nx-isr-test",
+    "nx-isr-test-e2e": "apps/nx-isr-test-e2e"
+  }
+}

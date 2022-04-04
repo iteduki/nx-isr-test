@@ -1,0 +1,28 @@
+{
+  "root": "apps/nx-isr-test-e2e",
+  "sourceRoot": "apps/nx-isr-test-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/nx-isr-test-e2e/cypress.json",
+        "devServerTarget": "nx-isr-test:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "nx-isr-test:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nx-isr-test-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["nx-isr-test"]
+}
