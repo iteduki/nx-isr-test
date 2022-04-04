@@ -9,8 +9,10 @@ export default async function handler(
     return res.status(401).json({ message: 'Invalid token' });
   }
 
+  const id = req.query['id'] ?? '1'
+
   try {
-    await res.unstable_revalidate('/isr1');
+    await res.unstable_revalidate(`/${id}`);
     return res.json({ revalidated: true });
   } catch (err) {
     console.log(err);
