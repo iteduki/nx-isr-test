@@ -37,7 +37,7 @@ const IsrPage: React.VFC<IsrPageProps> = ({ title, content }) => {
   return (
     <>
       <Head>
-        <title>{content}</title>
+        <title>{title}</title>
       </Head>
       <h1>{title}</h1>
       <p>{content}</p>
