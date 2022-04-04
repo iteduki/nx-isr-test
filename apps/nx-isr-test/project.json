@@ -19,7 +19,9 @@
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "nx-isr-test:build",
-        "dev": true
+        "dev": true,
+        "hostname": "localhost",
+        "port": 4200
       },
       "configurations": {
         "production": {
