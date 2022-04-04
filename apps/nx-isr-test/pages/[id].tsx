@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 export const getStaticPaths: GetStaticPaths<{
   id: string;
@@ -35,6 +36,9 @@ export const getStaticProps: GetStaticProps<
 const IsrPage: React.VFC<IsrPageProps> = ({ title, content }) => {
   return (
     <>
+      <Head>
+        <title>{content}</title>
+      </Head>
       <h1>{title}</h1>
       <p>{content}</p>
     </>
