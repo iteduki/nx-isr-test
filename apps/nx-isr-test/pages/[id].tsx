@@ -15,6 +15,7 @@ export const getStaticPaths: GetStaticPaths<{
 
 interface IsrPageProps {
   title: string;
+  content: string;
 }
 
 export const getStaticProps: GetStaticProps<
@@ -25,16 +26,17 @@ export const getStaticProps: GetStaticProps<
   return {
     props: {
       title: `ページタイトル${id}`,
+      content: new Date().toString(),
     },
     revalidate: 60 * 60 * 1, // 1時間
   };
 };
 
-const IsrPage: React.VFC<IsrPageProps> = ({ title }) => {
+const IsrPage: React.VFC<IsrPageProps> = ({ title, content }) => {
   return (
     <>
       <h1>{title}</h1>
-      <p>{new Date().toString()}</p>
+      <p>{content}</p>
     </>
   );
 };
