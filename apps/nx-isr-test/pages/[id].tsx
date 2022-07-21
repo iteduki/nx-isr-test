@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import dayjs from 'dayjs';
 
 export const getStaticPaths: GetStaticPaths<{
   id: string;
@@ -27,9 +28,9 @@ export const getStaticProps: GetStaticProps<
   return {
     props: {
       title: `ページタイトル${id}`,
-      content: new Date().toString(),
+      content: dayjs(new Date()).format('YYYY-MM-DD:ss'),
     },
-    revalidate: 60 // 1分
+    revalidate: 60, // 1分
   };
 };
 
