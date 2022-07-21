@@ -9,10 +9,10 @@ export const getStaticProps: GetStaticProps = () => {
   };
 };
 
-const ids = [1, 2, 3];
+const ids = [1, 2, 3, 'hoge'];
 
 const IndexPage: NextPage = () => {
-  const [text, setText] = useState('')
+  const [text, setText] = useState('');
   return (
     <>
       {ids.map((id) => (
@@ -33,7 +33,7 @@ const IndexPage: NextPage = () => {
                 });
                 const text = await response.text();
                 console.log(JSON.parse(text));
-                setText(`${id} cache is revalidated`)
+                setText(`${id} cache is revalidated`);
               }}
             />
           </div>
