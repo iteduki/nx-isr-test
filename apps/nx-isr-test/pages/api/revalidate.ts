@@ -9,11 +9,11 @@ export default async function handler(
     return res.status(401).json({ message: 'Invalid token' });
   }
 
-  const id = req.query['id'] ?? '1'
+  const id = req.query['id'] ?? '1';
 
   try {
     await res.unstable_revalidate(`/${id}`);
-    return res.json({ revalidated: true });
+    return res.json({ revalidated: true, path: `/${id}` });
   } catch (err) {
     console.log(err);
     // If there was an error, Next.js will continue
